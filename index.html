@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Interaktive Lernplattform zur Klausurvorbereitung IT-Sicherheit und Netzwerke – Quiz, Karteikarten, Probeklausur und Lernanalytik.">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>IT-Sicherheit Lernplattform</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=1.0.0">
+  <script>
+    // Theme vor dem ersten Rendern setzen (verhindert Aufblitzen)
+    try {
+      var s = JSON.parse(localStorage.getItem('itsec-lernplattform:v1') || '{}');
+      var t = s.settings && s.settings.theme;
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { /* ignorieren */ }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#view">Zum Inhalt springen</a>
+
+  <div class="shell">
+    <aside class="sidebar" aria-label="Hauptnavigation">
+      <a class="brand" href="#/">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <span class="brand-text"><strong>IT-Sicherheit</strong><small>Lernplattform</small></span>
+      </a>
+      <nav id="side-nav" class="side-nav"></nav>
+      <div class="sidebar-foot">
+        <span id="streak-pill" class="streak-pill" title="Lernserie in Tagen"></span>
+        <button type="button" class="icon-btn" data-theme-toggle></button>
+      </div>
+    </aside>
+
+    <header class="topbar">
+      <a class="brand" href="#/">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <span class="brand-text"><strong>IT-Sicherheit</strong></span>
+      </a>
+      <button type="button" class="icon-btn" data-theme-toggle></button>
+    </header>
+
+    <main id="view" class="view" tabindex="-1"></main>
+
+    <nav id="bottom-nav" class="bottom-nav" aria-label="Hauptnavigation"></nav>
+  </div>
+
+  <div id="toast-host" class="toast-host" aria-live="polite"></div>
+
+  <noscript><p class="noscript">Diese Lernplattform benötigt JavaScript.</p></noscript>
+
+  <!-- Daten -->
+  <script src="js/data/sources.js?v=1.0.0"></script>
+  <script src="js/data/topics.js?v=1.0.0"></script>
+  <script src="js/data/questions.js?v=1.0.0"></script>
+  <!-- Kern -->
+  <script src="js/core/utils.js?v=1.0.0"></script>
+  <script src="js/core/icons.js?v=1.0.0"></script>
+  <script src="js/core/store.js?v=1.0.0"></script>
+  <script src="js/core/content.js?v=1.0.0"></script>
+  <!-- Komponenten & Ansichten -->
+  <script src="js/components/question.js?v=1.0.0"></script>
+  <script src="js/views/dashboard.js?v=1.0.0"></script>
+  <script src="js/views/learn.js?v=1.0.0"></script>
+  <script src="js/views/quiz.js?v=1.0.0"></script>
+  <script src="js/views/cards.js?v=1.0.0"></script>
+  <script src="js/views/exam.js?v=1.0.0"></script>
+  <script src="js/views/stats.js?v=1.0.0"></script>
+  <script src="js/app.js?v=1.0.0"></script>
+</body>
+</html>
